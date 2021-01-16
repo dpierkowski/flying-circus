@@ -5,7 +5,7 @@ requirejs.config({
     }
 });
 
-requirejs(['plane_model', 'ko', 'jquery'], function (modelConstructor, ko, $) {
+requirejs(['plane', 'ko', 'jquery'], function (modelConstructor, ko, $) {
 
     var model = modelConstructor();
 
