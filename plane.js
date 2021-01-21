@@ -1,150 +1,148 @@
 define(['ko'], function(ko) {
 
-	return function () {
+	return function (planeState) {
 		var that = {};
 
-		var altitude = ko.observable(0);
-		var airspeed = ko.observable(0);
-		var fuel = ko.observable(0);
-		var dropoff = ko.observable(0);
-		var visibility = ko.observable(0);
-		var energy_loss = ko.observable(0);
-		var turn_bleed = ko.observable(0);
-		var stability = ko.observable(0);
-		var stress = ko.observable(0);
-		var plane_escape = ko.observable(0); //'escape' is a javascript reserved word, so we can't call this just 'escape'
-		var crash = ko.observable(0);
-		var max_toughness = ko.observable(0);
-		var current_toughness = ko.observable(0);
-		var max_strain = ko.observable(0);
-		var current_strain = ko.observable(0);
-		var g_force = ko.observable(0);
-		var kills = ko.observable("kills");
+		that.altitude = ko.observable(planeState ? planeState.altitude : 0);
+		that.airspeed = ko.observable(planeState ? planeState.airspeed : 0);
+		that.fuel = ko.observable(planeState ? planeState.fuel : 0);
+		that.dropoff = ko.observable(planeState ? planeState.dropoff : 0);
+		that.visibility = ko.observable(planeState ? planeState.visibility : 0);
+		that.energy_loss = ko.observable(planeState ? planeState.energy_loss : 0);
+		that.turn_bleed = ko.observable(planeState ? planeState.turn_bleed : 0);
+		that.stability = ko.observable(planeState ? planeState.stability : 0);
+		that.stress = ko.observable(planeState ? planeState.stress : 0);
+		that.plane_escape = ko.observable(planeState ? planeState.plane_escape : 0); //'escape' is a javascript reserved word, so we can't call this just 'escape'
+		that.crash = ko.observable(planeState ? planeState.crash : 0);
+		that.max_toughness = ko.observable(planeState ? planeState.max_toughness : 0);
+		that.current_toughness = ko.observable(planeState ? planeState.current_toughness : 0);
+		that.max_strain = ko.observable(planeState ? planeState.max_strain : 0);
+		that.current_strain = ko.observable(planeState ? planeState.current_strain : 0);
+		that.g_force = ko.observable(planeState ? planeState.g_force : 0);
+		that.kills = ko.observable(planeState ? planeState.kills : 0);
 
-		var full_load_boost = ko.observable(0);
-		var full_load_handling = ko.observable(0);
-		var full_load_climb = ko.observable(0);
-		var full_load_stall = ko.observable(0);
-		var full_load_speed = ko.observable(0);
+		that.full_load_boost = ko.observable(planeState ? planeState.full_load_boost : 0);
+		that.full_load_handling = ko.observable(planeState ? planeState.full_load_handling : 0);
+		that.full_load_climb = ko.observable(planeState ? planeState.full_load_climb : 0);
+		that.full_load_stall = ko.observable(planeState ? planeState.full_load_stall : 0);
+		that.full_load_speed = ko.observable(planeState ? planeState.full_load_speed : 0);
 
-		var half_fuel_bombs_boost = ko.observable(0);
-		var half_fuel_bombs_handling = ko.observable(0);
-		var half_fuel_bombs_climb = ko.observable(0);
-		var half_fuel_bombs_stall = ko.observable(0);
-		var half_fuel_bombs_speed = ko.observable(0);
+		that.half_fuel_bombs_boost = ko.observable(planeState ? planeState.half_fuel_bombs_boost : 0);
+		that.half_fuel_bombs_handling = ko.observable(planeState ? planeState.half_fuel_bombs_handling : 0);
+		that.half_fuel_bombs_climb = ko.observable(planeState ? planeState.half_fuel_bombs_climb : 0);
+		that.half_fuel_bombs_stall = ko.observable(planeState ? planeState.half_fuel_bombs_stall : 0);
+		that.half_fuel_bombs_speed = ko.observable(planeState ? planeState.half_fuel_bombs_speed : 0);
 
-		var full_fuel_no_bombs_boost = ko.observable(0);
-		var full_fuel_no_bombs_handling = ko.observable(0);
-		var full_fuel_no_bombs_climb = ko.observable(0);
-		var full_fuel_no_bombs_stall = ko.observable(0);
-		var full_fuel_no_bombs_speed = ko.observable(0);
+		that.full_fuel_no_bombs_boost = ko.observable(planeState ? planeState.full_fuel_no_bombs_boost : 0);
+		that.full_fuel_no_bombs_handling = ko.observable(planeState ? planeState.full_fuel_no_bombs_handling : 0);
+		that.full_fuel_no_bombs_climb = ko.observable(planeState ? planeState.full_fuel_no_bombs_climb : 0);
+		that.full_fuel_no_bombs_stall = ko.observable(planeState ? planeState.full_fuel_no_bombs_stall : 0);
+		that.full_fuel_no_bombs_speed = ko.observable(planeState ? planeState.full_fuel_no_bombs_speed : 0);
 
-		var half_fuel_no_bombs_boost = ko.observable(0);
-		var half_fuel_no_bombs_handling = ko.observable(0);
-		var half_fuel_no_bombs_climb = ko.observable(0);
-		var half_fuel_no_bombs_stall = ko.observable(0);
-		var half_fuel_no_bombs_speed = ko.observable(0);
+		that.half_fuel_no_bombs_boost = ko.observable(planeState ? planeState.half_fuel_no_bombs_boost : 0);
+		that.half_fuel_no_bombs_handling = ko.observable(planeState ? planeState.half_fuel_no_bombs_handling : 0);
+		that.half_fuel_no_bombs_climb = ko.observable(planeState ? planeState.half_fuel_no_bombs_climb : 0);
+		that.half_fuel_no_bombs_stall = ko.observable(planeState ? planeState.half_fuel_no_bombs_stall : 0);
+		that.half_fuel_no_bombs_speed = ko.observable(planeState ? planeState.half_fuel_no_bombs_speed : 0);
 
-		var empty_boost = ko.observable(0);
-		var empty_handling = ko.observable(0);
-		var empty_climb = ko.observable(0);
-		var empty_stall = ko.observable(0);
-		var empty_speed = ko.observable(0);
+		that.empty_boost = ko.observable(planeState ? planeState.empty_boost : 0);
+		that.empty_handling = ko.observable(planeState ? planeState.empty_handling : 0);
+		that.empty_climb = ko.observable(planeState ? planeState.empty_climb : 0);
+		that.empty_stall = ko.observable(planeState ? planeState.empty_stall : 0);
+		that.empty_speed = ko.observable(planeState ? planeState.empty_speed : 0);
 
-		var vital_part_1 = ko.observable("part 1");
-		var vital_part_2 = ko.observable("part 2");
-		var vital_part_3 = ko.observable("part 3");
-		var vital_part_4 = ko.observable("part 4");
-		var vital_part_5 = ko.observable("part 5");
-		var vital_part_6 = ko.observable("part 6");
-		var vital_part_7 = ko.observable("part 7");
-		var vital_part_8 = ko.observable("part 8");
-		var vital_part_9 = ko.observable("part 9");
-		var vital_part_10 = ko.observable("part 10");
+		that.vital_part_1 = ko.observable(planeState ? planeState.vital_part_1 : 0);
+		that.vital_part_2 = ko.observable(planeState ? planeState.vital_part_2 : 0);
+		that.vital_part_3 = ko.observable(planeState ? planeState.vital_part_3 : 0);
+		that.vital_part_4 = ko.observable(planeState ? planeState.vital_part_4 : 0);
+		that.vital_part_5 = ko.observable(planeState ? planeState.vital_part_5 : 0);
+		that.vital_part_6 = ko.observable(planeState ? planeState.vital_part_6 : 0);
+		that.vital_part_7 = ko.observable(planeState ? planeState.vital_part_7 : 0);
+		that.vital_part_8 = ko.observable(planeState ? planeState.vital_part_8 : 0);
+		that.vital_part_9 = ko.observable(planeState ? planeState.vital_part_9 : 0);
+		that.vital_part_10 = ko.observable(planeState ? planeState.vital_part_10 : 0);
 
-		var armor = ko.observable("armor");
-		var max_bomb_load = ko.observable("max bombs");
+		that.armor = ko.observable(planeState ? planeState.armor : 0);
+		that.max_bomb_load = ko.observable(planeState ? planeState.max_bomb_load : 0);
 
-		var ordinance_1 = ko.observable("ordinance 1");
-		var ordinance_2 = ko.observable("ordinance 2");
-		var ordinance_3 = ko.observable("ordinance 3");
-		var ordinance_4 = ko.observable("ordinance 4");
+		that.ordinance_1 = ko.observable(planeState ? planeState.ordinance_1 : 0);
+		that.ordinance_2 = ko.observable(planeState ? planeState.ordinance_2 : 0);
+		that.ordinance_3 = ko.observable(planeState ? planeState.ordinance_3 : 0);
+		that.ordinance_4 = ko.observable(planeState ? planeState.ordinance_4 : 0);
 
-		var notes = ko.observable("the notes");
+		that.notes = ko.observable(planeState ? planeState.notes : 0);
 
+		var toJSON = function() {
 
-		that.altitude = altitude;
-		that.airspeed = airspeed;
-		that.fuel = fuel;
-		that.dropoff = dropoff;
-		that.visibility = visibility;
-		that.energy_loss = energy_loss;
-		that.turn_bleed = turn_bleed;
-		that.stability = stability;
-		that.stress = stress;
-		that.plane_escape = plane_escape;
-		that.crash = crash;
-		that.max_toughness = max_toughness;
-		that.current_toughness = current_toughness;
-		that.max_strain = max_strain;
-		that.current_strain = current_strain;
-		that.g_force = g_force;
-		that.kills = kills;
+			var planeState = {
+				"altitude": that.altitude(),
+				"airspeed": that.airspeed(),
+				"fuel": that.fuel(),
+				"dropoff": that.dropoff(),
+				"visibility": that.visibility(),
+				"energy_loss": that.energy_loss(),
+				"turn_bleed": that.turn_bleed(),
+				"stability": that.stability(),
+				"stress": that.stress(),
+				"plane_escape": that.plane_escape(),
+				"crash": that.crash(),
+				"max_toughness": that.max_toughness(),
+				"current_toughness": that.current_toughness(),
+				"max_strain": that.max_strain(),
+				"current_strain": that.current_strain(),
+				"g_force": that.g_force(),
+				"kills": that.kills(),
+				"full_load_boost": that.full_load_boost(),
+				"full_load_handling": that.full_load_handling(),
+				"full_load_climb": that.full_load_climb(),
+				"full_load_stall": that.full_load_stall(),
+				"full_load_speed": that.full_load_speed(),
+				"half_fuel_bombs_boost": that.half_fuel_bombs_boost(),
+				"half_fuel_bombs_handling": that.half_fuel_bombs_handling(),
+				"half_fuel_bombs_climb": that.half_fuel_bombs_climb(),
+				"half_fuel_bombs_stall": that.half_fuel_bombs_stall(),
+				"half_fuel_bombs_speed": that.half_fuel_bombs_speed(),
+				"full_fuel_no_bombs_boost": that.full_fuel_no_bombs_boost(),
+				"full_fuel_no_bombs_handling": that.full_fuel_no_bombs_handling(),
+				"full_fuel_no_bombs_climb": that.full_fuel_no_bombs_climb(),
+				"full_fuel_no_bombs_stall": that.full_fuel_no_bombs_stall(),
+				"full_fuel_no_bombs_speed": that.full_fuel_no_bombs_speed(),
+				"half_fuel_no_bombs_boost": that.half_fuel_no_bombs_boost(),
+				"half_fuel_no_bombs_handling": that.half_fuel_no_bombs_handling(),
+				"half_fuel_no_bombs_climb": that.half_fuel_no_bombs_climb(),
+				"half_fuel_no_bombs_stall": that.half_fuel_no_bombs_stall(),
+				"half_fuel_no_bombs_speed": that.half_fuel_no_bombs_speed(),
+				"empty_boost": that.empty_boost(),
+				"empty_handling": that.empty_handling(),
+				"empty_climb": that.empty_climb(),
+				"empty_stall": that.empty_stall(),
+				"empty_speed": that.empty_speed(),
+				"vital_part_1": that.vital_part_1(),
+				"vital_part_2": that.vital_part_2(),
+				"vital_part_3": that.vital_part_3(),
+				"vital_part_4": that.vital_part_4(),
+				"vital_part_5": that.vital_part_5(),
+				"vital_part_6": that.vital_part_6(),
+				"vital_part_7": that.vital_part_7(),
+				"vital_part_8": that.vital_part_8(),
+				"vital_part_9": that.vital_part_9(),
+				"vital_part_10": that.vital_part_10(),
+				"armor": that.armor(),
+				"max_bomb_load": that.max_bomb_load(),
+				"ordinance_1": that.ordinance_1(),
+				"ordinance_2": that.ordinance_2(),
+				"ordinance_3": that.ordinance_3(),
+				"ordinance_4": that.ordinance_4(),
+				"notes": that.notes()
+			};
 
-		that.full_load_boost = full_load_boost;
-		that.full_load_handling = full_load_handling;
-		that.full_load_climb = full_load_climb;
-		that.full_load_stall = full_load_stall;
-		that.full_load_speed = full_load_speed;
+			return JSON.stringify(planeState);
+		};
 
-		that.half_fuel_bombs_boost = half_fuel_bombs_boost;
-		that.half_fuel_bombs_handling = half_fuel_bombs_handling;
-		that.half_fuel_bombs_climb = half_fuel_bombs_climb;
-		that.half_fuel_bombs_stall = half_fuel_bombs_stall;
-		that.half_fuel_bombs_speed = half_fuel_bombs_speed;
-
-		that.full_fuel_no_bombs_boost = full_fuel_no_bombs_boost;
-		that.full_fuel_no_bombs_handling = full_fuel_no_bombs_handling;
-		that.full_fuel_no_bombs_climb = full_fuel_no_bombs_climb;
-		that.full_fuel_no_bombs_stall = full_fuel_no_bombs_stall;
-		that.full_fuel_no_bombs_speed = full_fuel_no_bombs_speed;
-
-		that.half_fuel_no_bombs_boost = half_fuel_no_bombs_boost;
-		that.half_fuel_no_bombs_handling = half_fuel_no_bombs_handling;
-		that.half_fuel_no_bombs_climb = half_fuel_no_bombs_climb;
-		that.half_fuel_no_bombs_stall = half_fuel_no_bombs_stall;
-		that.half_fuel_no_bombs_speed = half_fuel_no_bombs_speed;
-
-		that.empty_boost = empty_boost;
-		that.empty_handling = empty_handling;
-		that.empty_climb = empty_climb;
-		that.empty_stall = empty_stall;
-		that.empty_speed = empty_speed;
-
-		that.vital_part_1 = vital_part_1;
-		that.vital_part_2 = vital_part_2;
-		that.vital_part_3 = vital_part_3;
-		that.vital_part_4 = vital_part_4;
-		that.vital_part_5 = vital_part_5;
-		that.vital_part_6 = vital_part_6;
-		that.vital_part_7 = vital_part_7;
-		that.vital_part_8 = vital_part_8;
-		that.vital_part_9 = vital_part_9;
-		that.vital_part_10 = vital_part_10;
-
-		that.armor = armor;
-		that.max_bomb_load = max_bomb_load;
-
-		that.ordinance_1 = ordinance_1;
-		that.ordinance_2 = ordinance_2;
-		that.ordinance_3 = ordinance_3;
-		that.ordinance_4 = ordinance_4;
-
-		that.notes = notes;
-
-		// var calculate = function() {
-		// };
-		// that.calculate = calculate;
+		that.persistState = function(target) {
+			window.localStorage.setItem("planeState", toJSON());
+			return true; //tells knockout to continue processing this event
+		};
 
 		return that;
 	};

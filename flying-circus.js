@@ -7,7 +7,8 @@ requirejs.config({
 
 requirejs(['plane', 'ko', 'jquery'], function (modelConstructor, ko, $) {
 
-    var model = modelConstructor();
+	const planeState = JSON.parse(window.localStorage.getItem("planeState"));
+    var model = modelConstructor(planeState);
 
     ko.applyBindings(model);
 
