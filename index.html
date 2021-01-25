@@ -6,76 +6,129 @@
 	</head>
 
 	<body>
-		<div class="instrument_panel">
-			<input type="number" class="big_number altitude" data-bind="value: altitude, event: {change: persistState}"></input>
-			<input type="number" class="big_number airspeed" data-bind="value: airspeed, event: {change: persistState}"></input>
-			<input type="number" class="fuel" data-bind="value: fuel, event: {change: persistState}"></input>
-			<input type="number" class="big_number dropoff" data-bind="value: dropoff, event: {change: persistState}"></input>
-			<input type="number" class="big_number visibility" data-bind="value: visibility, event: {change: persistState}"></input>
-			<input type="number" class="big_number energy_loss" data-bind="value: energy_loss, event: {change: persistState}"></input>
-			<input type="number" class="big_number turn_bleed" data-bind="value: turn_bleed, event: {change: persistState}"></input>
-			<input type="number" class="big_number stability" data-bind="value: stability, event: {change: persistState}"></input>
-			<input type="number" class="big_number stress" data-bind="value: stress, event: {change: persistState}"></input>
-			<input type="number" class="big_number escape" data-bind="value: plane_escape, event: {change: persistState}"></input>
-			<input type="number" class="big_number crash" data-bind="value: crash, event: {change: persistState}"></input>
-			<input type="number" class="big_number max_toughness" data-bind="value: max_toughness, event: {change: persistState}"></input>
-			<input type="number" class="big_number current_toughness" data-bind="value: current_toughness, event: {change: persistState}"></input>
-			<input type="number" class="big_number max_strain" data-bind="value: max_strain, event: {change: persistState}"></input>
-			<input type="number" class="big_number current_strain" data-bind="value: current_strain, event: {change: persistState}"></input>
-			<input type="number" class="number g_force" data-bind="value: g_force, event: {change: persistState}"></input>
-			<textarea class="kills" data-bind="value: kills, event: {change: persistState}"  placeholder="click here to type..."></textarea>
+		<div>
+			<div class="instrument_panel">
+				<!-- These are the inputs for the plane state -->
+				<input type="number" class="big_number altitude" data-bind="value: altitude, event: {change: persistState}"></input>
+				<input type="number" class="big_number airspeed" data-bind="value: airspeed, event: {change: persistState}"></input>
+				<input type="number" class="fuel" data-bind="value: fuel, event: {change: persistState}"></input>
+				<input type="number" class="big_number dropoff" data-bind="value: dropoff, event: {change: persistState}"></input>
+				<input type="number" class="big_number visibility" data-bind="value: visibility, event: {change: persistState}"></input>
+				<input type="number" class="big_number energy_loss" data-bind="value: energy_loss, event: {change: persistState}"></input>
+				<input type="number" class="big_number turn_bleed" data-bind="value: turn_bleed, event: {change: persistState}"></input>
+				<input type="number" class="big_number stability" data-bind="value: stability, event: {change: persistState}"></input>
+				<input type="number" class="big_number stress" data-bind="value: stress, event: {change: persistState}"></input>
+				<input type="number" class="big_number escape" data-bind="value: plane_escape, event: {change: persistState}"></input>
+				<input type="number" class="big_number crash" data-bind="value: crash, event: {change: persistState}"></input>
+				<input type="number" class="big_number max_toughness" data-bind="value: max_toughness, event: {change: persistState}"></input>
+				<input type="number" class="big_number current_toughness" data-bind="value: current_toughness, event: {change: persistState}"></input>
+				<input type="number" class="big_number max_strain" data-bind="value: max_strain, event: {change: persistState}"></input>
+				<input type="number" class="big_number current_strain" data-bind="value: current_strain, event: {change: persistState}"></input>
+				<textarea class="kills" data-bind="value: kills, event: {change: persistState}"  placeholder="click here to type..."></textarea>
 
-			<input type="number" class="number full_load_boost" data-bind="value: full_load_boost, event: {change: persistState}"></input>
-			<input type="number" class="number full_load_handling" data-bind="value: full_load_handling, event: {change: persistState}"></input>
-			<input type="number" class="number full_load_climb" data-bind="value: full_load_climb, event: {change: persistState}"></input>
-			<input type="number" class="number full_load_stall" data-bind="value: full_load_stall, event: {change: persistState}"></input>
-			<input type="number" class="number full_load_speed" data-bind="value: full_load_speed, event: {change: persistState}"></input>
+				<input type="number" class="number full_load_boost" data-bind="value: full_load_boost, event: {change: persistState}"></input>
+				<input type="number" class="number full_load_handling" data-bind="value: full_load_handling, event: {change: persistState}"></input>
+				<input type="number" class="number full_load_climb" data-bind="value: full_load_climb, event: {change: persistState}"></input>
+				<input type="number" class="number full_load_stall" data-bind="value: full_load_stall, event: {change: persistState}"></input>
+				<input type="number" class="number full_load_speed" data-bind="value: full_load_speed, event: {change: persistState}"></input>
 
-			<input type="number" class="number half_fuel_bombs_boost" data-bind="value: half_fuel_bombs_boost, event: {change: persistState}"></input>
-			<input type="number" class="number half_fuel_bombs_handling" data-bind="value: half_fuel_bombs_handling, event: {change: persistState}"></input>
-			<input type="number" class="number half_fuel_bombs_climb" data-bind="value: half_fuel_bombs_climb, event: {change: persistState}"></input>
-			<input type="number" class="number half_fuel_bombs_stall" data-bind="value: half_fuel_bombs_stall, event: {change: persistState}"></input>
-			<input type="number" class="number half_fuel_bombs_speed" data-bind="value: half_fuel_bombs_speed, event: {change: persistState}"></input>
+				<input type="number" class="number half_fuel_bombs_boost" data-bind="value: half_fuel_bombs_boost, event: {change: persistState}"></input>
+				<input type="number" class="number half_fuel_bombs_handling" data-bind="value: half_fuel_bombs_handling, event: {change: persistState}"></input>
+				<input type="number" class="number half_fuel_bombs_climb" data-bind="value: half_fuel_bombs_climb, event: {change: persistState}"></input>
+				<input type="number" class="number half_fuel_bombs_stall" data-bind="value: half_fuel_bombs_stall, event: {change: persistState}"></input>
+				<input type="number" class="number half_fuel_bombs_speed" data-bind="value: half_fuel_bombs_speed, event: {change: persistState}"></input>
 
-			<input type="number" class="number full_fuel_no_bombs_boost" data-bind="value: full_fuel_no_bombs_boost, event: {change: persistState}"></input>
-			<input type="number" class="number full_fuel_no_bombs_handling" data-bind="value: full_fuel_no_bombs_handling, event: {change: persistState}"></input>
-			<input type="number" class="number full_fuel_no_bombs_climb" data-bind="value: full_fuel_no_bombs_climb, event: {change: persistState}"></input>
-			<input type="number" class="number full_fuel_no_bombs_stall" data-bind="value: full_fuel_no_bombs_stall, event: {change: persistState}"></input>
-			<input type="number" class="number full_fuel_no_bombs_speed" data-bind="value: full_fuel_no_bombs_speed, event: {change: persistState}"></input>
+				<input type="number" class="number full_fuel_no_bombs_boost" data-bind="value: full_fuel_no_bombs_boost, event: {change: persistState}"></input>
+				<input type="number" class="number full_fuel_no_bombs_handling" data-bind="value: full_fuel_no_bombs_handling, event: {change: persistState}"></input>
+				<input type="number" class="number full_fuel_no_bombs_climb" data-bind="value: full_fuel_no_bombs_climb, event: {change: persistState}"></input>
+				<input type="number" class="number full_fuel_no_bombs_stall" data-bind="value: full_fuel_no_bombs_stall, event: {change: persistState}"></input>
+				<input type="number" class="number full_fuel_no_bombs_speed" data-bind="value: full_fuel_no_bombs_speed, event: {change: persistState}"></input>
 
-			<input type="number" class="number half_fuel_no_bombs_boost" data-bind="value: half_fuel_no_bombs_boost, event: {change: persistState}"></input>
-			<input type="number" class="number half_fuel_no_bombs_handling" data-bind="value: half_fuel_no_bombs_handling, event: {change: persistState}"></input>
-			<input type="number" class="number half_fuel_no_bombs_climb" data-bind="value: half_fuel_no_bombs_climb, event: {change: persistState}"></input>
-			<input type="number" class="number half_fuel_no_bombs_stall" data-bind="value: half_fuel_no_bombs_stall, event: {change: persistState}"></input>
-			<input type="number" class="number half_fuel_no_bombs_speed" data-bind="value: half_fuel_no_bombs_speed, event: {change: persistState}"></input>
+				<input type="number" class="number half_fuel_no_bombs_boost" data-bind="value: half_fuel_no_bombs_boost, event: {change: persistState}"></input>
+				<input type="number" class="number half_fuel_no_bombs_handling" data-bind="value: half_fuel_no_bombs_handling, event: {change: persistState}"></input>
+				<input type="number" class="number half_fuel_no_bombs_climb" data-bind="value: half_fuel_no_bombs_climb, event: {change: persistState}"></input>
+				<input type="number" class="number half_fuel_no_bombs_stall" data-bind="value: half_fuel_no_bombs_stall, event: {change: persistState}"></input>
+				<input type="number" class="number half_fuel_no_bombs_speed" data-bind="value: half_fuel_no_bombs_speed, event: {change: persistState}"></input>
 
-			<input type="number" class="number empty_boost" data-bind="value: empty_boost, event: {change: persistState}"></input>
-			<input type="number" class="number empty_handling" data-bind="value: empty_handling, event: {change: persistState}"></input>
-			<input type="number" class="number empty_climb" data-bind="value: empty_climb, event: {change: persistState}"></input>
-			<input type="number" class="number empty_stall" data-bind="value: empty_stall, event: {change: persistState}"></input>
-			<input type="number" class="number empty_speed" data-bind="value: empty_speed, event: {change: persistState}"></input>
+				<input type="number" class="number empty_boost" data-bind="value: empty_boost, event: {change: persistState}"></input>
+				<input type="number" class="number empty_handling" data-bind="value: empty_handling, event: {change: persistState}"></input>
+				<input type="number" class="number empty_climb" data-bind="value: empty_climb, event: {change: persistState}"></input>
+				<input type="number" class="number empty_stall" data-bind="value: empty_stall, event: {change: persistState}"></input>
+				<input type="number" class="number empty_speed" data-bind="value: empty_speed, event: {change: persistState}"></input>
 
-			<input class="text vital_part_1" data-bind="value: vital_part_1, event: {change: persistState}" placeholder="click here to type..."></input>
-			<input class="text vital_part_2" data-bind="value: vital_part_2, event: {change: persistState}"></input>
-			<input class="text vital_part_3" data-bind="value: vital_part_3, event: {change: persistState}"></input>
-			<input class="text vital_part_4" data-bind="value: vital_part_4, event: {change: persistState}"></input>
-			<input class="text vital_part_5" data-bind="value: vital_part_5, event: {change: persistState}"></input>
-			<input class="text vital_part_6" data-bind="value: vital_part_6, event: {change: persistState}"></input>
-			<input class="text vital_part_7" data-bind="value: vital_part_7, event: {change: persistState}"></input>
-			<input class="text vital_part_8" data-bind="value: vital_part_8, event: {change: persistState}"></input>
-			<input class="text vital_part_9" data-bind="value: vital_part_9, event: {change: persistState}"></input>
-			<input class="text vital_part_10" data-bind="value: vital_part_10, event: {change: persistState}"></input></div>
+				<input class="text vital_part_1" data-bind="value: vital_part_1, event: {change: persistState}" placeholder="click here to type..."></input>
+				<input class="text vital_part_2" data-bind="value: vital_part_2, event: {change: persistState}"></input>
+				<input class="text vital_part_3" data-bind="value: vital_part_3, event: {change: persistState}"></input>
+				<input class="text vital_part_4" data-bind="value: vital_part_4, event: {change: persistState}"></input>
+				<input class="text vital_part_5" data-bind="value: vital_part_5, event: {change: persistState}"></input>
+				<input class="text vital_part_6" data-bind="value: vital_part_6, event: {change: persistState}"></input>
+				<input class="text vital_part_7" data-bind="value: vital_part_7, event: {change: persistState}"></input>
+				<input class="text vital_part_8" data-bind="value: vital_part_8, event: {change: persistState}"></input>
+				<input class="text vital_part_9" data-bind="value: vital_part_9, event: {change: persistState}"></input>
+				<input class="text vital_part_10" data-bind="value: vital_part_10, event: {change: persistState}"></input></div>
 
-			<input class="text armor" data-bind="value: armor, event: {change: persistState}"  placeholder="click here to type..."></input>
-			<input class="text max_bomb_load" data-bind="value: max_bomb_load, event: {change: persistState}"  placeholder="click here to type...">
+				<input class="text armor" data-bind="value: armor, event: {change: persistState}"  placeholder="click here to type..."></input>
+				<input class="text max_bomb_load" data-bind="value: max_bomb_load, event: {change: persistState}"  placeholder="click here to type...">
 
-			<input class="text ordinance_1" data-bind="value: ordinance_1, event: {change: persistState}"  placeholder="click here to type..."></input>
-			<input class="text ordinance_2" data-bind="value: ordinance_2, event: {change: persistState}"></input>
-			<input class="text ordinance_3" data-bind="value: ordinance_3, event: {change: persistState}"></input>
-			<input class="text ordinance_4" data-bind="value: ordinance_4, event: {change: persistState}"></input>
+				<input class="text ordinance_1" data-bind="value: ordinance_1, event: {change: persistState}"  placeholder="click here to type..."></input>
+				<input class="text ordinance_2" data-bind="value: ordinance_2, event: {change: persistState}"></input>
+				<input class="text ordinance_3" data-bind="value: ordinance_3, event: {change: persistState}"></input>
+				<input class="text ordinance_4" data-bind="value: ordinance_4, event: {change: persistState}"></input>
 
-			<textarea class="notes" data-bind="value: notes, event: {change: persistState}"  placeholder="click here to type..."></textarea>
+				<textarea class="notes" data-bind="value: notes, event: {change: persistState}"  placeholder="click here to type..."></textarea>
+
+				<!-- These are the divs for the load indicator -->
+				<div class="load_indicator full_load" data-bind="event: {click: function(data, event) {selectLoad('full_load')}}, css: {load_selected: full_load_selected()}"></div>
+
+				<div class="load_indicator half_fuel_bombs" data-bind="event: {click: function(data, event) {selectLoad('half_fuel_bombs')}}, css: {load_selected: half_fuel_bombs_selected()}"></div>
+
+				<div class="load_indicator full_fuel_no_bombs" data-bind="event: {click: function(data, event) {selectLoad('full_fuel_no_bombs')}}, css: {load_selected: full_fuel_no_bombs_selected()}"></div>
+
+				<div class="load_indicator half_fuel_no_bombs" data-bind="event: {click: function(data, event) {selectLoad('half_fuel_no_bombs')}}, css: {load_selected: half_fuel_no_bombs_selected()}"></div>
+
+				<div class="load_indicator empty" data-bind="event: {click: function(data, event) {selectLoad('empty')}}, css: {load_selected: empty_selected()}"></div>
+
+				<!-- These are the divs for the g-force gauge -->
+				<div class="g_force_gauge g_force_0" data-bind="event: {click: function(data, event) {g_force(0); persistState();}}"></div>
+				<div class="g_force_gauge g_force_1" data-bind="event: {click: function(data, event) {g_force(1); persistState();}}, css: {g_force_hidden: g_force() < 1, g_force_1_visible: g_force() > 0}"></div>
+				<div class="g_force_gauge g_force_2" data-bind="event: {click: function(data, event) {g_force(2); persistState();}}, css: {g_force_hidden: g_force() < 2, g_force_2_visible: g_force() > 1}"></div>
+				<div class="g_force_gauge g_force_3" data-bind="event: {click: function(data, event) {g_force(3); persistState();}}, css: {g_force_hidden: g_force() < 3, g_force_3_visible: g_force() > 2}"></div>
+				<div class="g_force_gauge g_force_4" data-bind="event: {click: function(data, event) {g_force(4); persistState();}}, css: {g_force_hidden: g_force() < 4, g_force_4_visible: g_force() > 3}"></div>
+				<div class="g_force_gauge g_force_5" data-bind="event: {click: function(data, event) {g_force(5); persistState();}}, css: {g_force_hidden: g_force() < 5, g_force_5_visible: g_force() > 4}"></div>
+				<div class="g_force_gauge g_force_6" data-bind="event: {click: function(data, event) {g_force(6); persistState();}}, css: {g_force_hidden: g_force() < 6, g_force_6_visible: g_force() > 5}"></div>
+				<div class="g_force_gauge g_force_7" data-bind="event: {click: function(data, event) {g_force(7); persistState();}}, css: {g_force_hidden: g_force() < 7, g_force_7_visible: g_force() > 6}"></div>
+				<div class="g_force_gauge g_force_8" data-bind="event: {click: function(data, event) {g_force(8); persistState();}}, css: {g_force_hidden: g_force() < 8, g_force_8_visible: g_force() > 7}"></div>
+				<div class="g_force_gauge g_force_9" data-bind="event: {click: function(data, event) {g_force(9); persistState();}}, css: {g_force_hidden: g_force() < 9, g_force_9_visible: g_force() > 8}"></div>
+				<div class="g_force_gauge g_force_10" data-bind="event: {click: function(data, event) {g_force(10); persistState();}}, css: {g_force_hidden: g_force() < 10, g_force_9_visible: g_force() > 9}"></div>
+
+			</div>
+			<div class="move_reference">
+				<div class = "move">Extend - Speed-&gt;Max; G-Force-&gt;0; +1RPM; disengage if clear, vulnerable if still in the fight</div>
+				<div class = "move">Alt Adjustment++ - Trade speed for altitude 5 to 1</div>
+				<div class = "move">Alt Adjustment+ steady - Speed-&gt;Stall; Alt+Climb;+1RPM</div>
+				<div class = "move">Alt Adjustment - steady - Trade altitude for speed 3 to 1; if speed&gt;Max, speed-Energy Loss min Max</div>
+				<div class = "move">Alt Adjustment - dive - Trade altitude for speed 3 to 1, can exceed Max</div>
+				<div class = "move">Pull Up - G-Force+Speed Factor; spend Alt to reduce G-force taken 1 to 1</div>
+				<div class = "move">Overstrain - When G-force &gt; 3: Damage; G-Force-&gt;3</div>
+				<div class = "move">Overspeed - When Airspeed&gt;Overspeed: +1RPM, +1 per 5 extra speed</div>
+				<div class = "move">Boost - Speed+Boost; if Speed&lt;Dropoff, Speed+2xBoost; +1RPM</div>
+				<div class = "move">Cool Off - When RPM&gt;7: Reduce Speed to Max or less; Wear; RPM-&gt;0; G-Force-&gt;0; Hard Move</div>
+				<div class = "move">Stall/Spin - When Speed&lt;Stall, Stall, or if you lose control. Try to recover, or 1 move+consequences</div>
+				<div class = "move">Recover - Roll+Calm+Stability; Spend energy to recover depending on result</div>
+				<div class = "move">Bail Out</div>
+				<div>&nbsp;</div>
+				<div class = "move">Dogfight, Attack, Pursue - +Hard+Agility - Speed - (Turn Bleed + Speed Factor)</div>
+				<div class = "move">Dogfight, Escape, Bait, Defend - +Keen+Agility - Speed - (Turn Bleed + Speed Factor)</div>
+				<div class = "move">Dogfight, Turn Tables - +Daring+Agility - Speed - (Turn Bleed + Speed Factor)</div>
+				<div class = "move">Commit to the Turn - Bonus = +1/Turn Bleed spent; G-Force + Speed Factor</div>
+				<div class = "move">Open Fire - +Daring+Agility</div>
+				<div class = "move">Take Fire - +Hard</div>
+				<div class = "move">Stay on Target - +Calm</div>
+				<div class = "move">Draw a Bead</div>
+				<div class = "move">Evade Danger</div>
+				<div class = "move">Chase</div>
+				<div class = "move">Overwatch - Hold 1, Spend to protect friend</div>
+			</div>
 		</div>
-
 	</body>
 </html>

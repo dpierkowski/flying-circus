@@ -6,6 +6,149 @@ div.instrument_panel {
 	width: 1125px;
 	height: 792px;
 	background-image: url("instrument_panel.png");
+	float: left;
+	z-index: 0;
+}
+
+div.load_selected {
+	background: rgba(200, 100, 0, 0.3);
+}
+
+div.load_indicator {
+	position: absolute;
+	height: 40px;
+	width: 375px;
+	z-index: 1;
+}
+
+div.full_load {
+	top: 71px;
+	left: 400px;
+}
+
+div.half_fuel_bombs {
+	top: 111px;
+	left: 400px;
+}
+
+div.full_fuel_no_bombs {
+	top: 151px;
+	left: 400px;
+}
+
+div.half_fuel_no_bombs {
+	top: 191px;
+	left: 400px;
+}
+
+div.empty {
+	top: 231px;
+	left: 400px;
+}
+
+div.g_force_gauge {
+	position: absolute;
+	z-index: 1;
+	height: 39px;
+	width: 50px;
+	left: 739px;
+}
+
+div.g_force_hidden {
+	background: rgba(255, 255, 255, 0);
+}
+
+div.g_force_0 {
+	background: rgba(0, 200, 96, 0.3);
+	top: 680px;
+	visibility: visible;
+}
+
+div.g_force_1 {
+	top: 641px;
+}
+
+div.g_force_1_visible {
+	background: rgba(20, 180, 88, 0.3);
+}
+
+div.g_force_2 {
+	top: 602px;
+}
+
+div.g_force_2_visible {
+	background: rgba(40, 160, 80, 0.3);
+}
+
+div.g_force_3 {
+	top: 564px;
+}
+
+div.g_force_3_visible {
+	background: rgba(60, 140, 72, 0.3);
+}
+
+div.g_force_4 {
+	top: 525px;
+}
+
+div.g_force_4_visible {
+	background: rgba(80, 120, 88, 0.3);
+}
+
+div.g_force_5 {
+	top: 486px;
+}
+
+div.g_force_5_visible {
+	background: rgba(100, 100, 60, 0.3);
+}
+
+div.g_force_6 {
+	top: 448px;
+}
+
+div.g_force_6_visible {
+	background: rgba(120, 80, 52, 0.3);
+}
+
+div.g_force_7 {
+	top: 409px;
+}
+
+div.g_force_7_visible {
+	background: rgba(140, 60, 44, 0.3);
+}
+
+div.g_force_8 {
+	top: 371px;
+}
+
+div.g_force_8_visible {
+	background: rgba(160, 40, 36, 0.3);
+}
+
+div.g_force_9 {
+	top: 332px;
+}
+
+div.g_force_9_visible {
+	background: rgba(180, 20, 28, 0.3);
+}
+
+div.g_force_10 {
+	top: 293px;
+}
+
+div.g_force_10_visible {
+	background: rgba(200, 0, 20, 0.3);
+}
+
+div.move_reference {
+}
+
+div.move {
+	padding-top: 5px;
 }
 
 input.number {
@@ -13,6 +156,8 @@ input.number {
 	border: 0px none;
 	font-family: Balthazar, serif;
 	font-size: 16;
+	z-index: 10;
+	background: rgba(255, 255, 255, 0);
 }
 
 input.big_number {
@@ -424,9 +569,9 @@ input.airspeed {
 .kills {
 	position: absolute;
 	top: 420px;
-	left: 865px;
+	left: 815px;
 	height: 50px;
-	width: 215px;
+	width: 265px;
 	border: 0px none;
 	font-family: Balthazar, serif;
 	resize: none;

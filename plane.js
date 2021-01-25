@@ -72,6 +72,14 @@ define(['ko'], function(ko) {
 
 		that.notes = ko.observable(planeState ? planeState.notes : 0);
 
+		that.full_load_selected = ko.observable(planeState ? planeState.full_load_selected : false);
+		that.half_fuel_bombs_selected =  ko.observable(planeState ? planeState.half_fuel_bombs_selected : false);
+		that.full_fuel_no_bombs_selected =  ko.observable(planeState ? planeState.full_fuel_no_bombs_selected : true);
+		that.half_fuel_no_bombs_selected =  ko.observable(planeState ? planeState.half_fuel_no_bombs_selected : false);
+		that.empty_selected =  ko.observable(planeState ? planeState.empty_selected : false);
+
+		const plane_loads = [that.full_load_selected, that.half_fuel_bombs_selected, that.full_fuel_no_bombs_selected, that.half_fuel_no_bombs_selected, that.empty_selected];
+
 		var toJSON = function() {
 
 			var planeState = {
@@ -133,16 +141,28 @@ define(['ko'], function(ko) {
 				"ordinance_2": that.ordinance_2(),
 				"ordinance_3": that.ordinance_3(),
 				"ordinance_4": that.ordinance_4(),
-				"notes": that.notes()
+				"notes": that.notes(),
+				"full_load_selected": that.full_load_selected(),
+				"half_fuel_bombs_selected": that.half_fuel_bombs_selected(),
+				"full_fuel_no_bombs_selected": that.full_fuel_no_bombs_selected(),
+				"half_fuel_no_bombs_selected": that.half_fuel_no_bombs_selected(),
+				"empty_selected": that.empty_selected()
 			};
 
 			return JSON.stringify(planeState);
 		};
 
-		that.persistState = function(target) {
+		that.persistState = function() {
 			window.localStorage.setItem("planeState", toJSON());
 			return true; //tells knockout to continue processing this event
 		};
+
+		/* Event handler for when the user clicks on a plane load level */
+		that.selectLoad = function(load) {
+			plane_loads.forEach((item) => {item(false)});
+			that[load + '_selected'](true);
+			that.persistState();
+		}
 
 		return that;
 	};

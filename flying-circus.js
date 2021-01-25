@@ -11,5 +11,4 @@ requirejs(['plane', 'ko', 'jquery'], function (modelConstructor, ko, $) {
     var model = modelConstructor(planeState);
 
     ko.applyBindings(model);
-
 });
