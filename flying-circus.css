@@ -147,8 +147,21 @@ div.g_force_10_visible {
 div.move_reference {
 }
 
-div.move {
+
+div.move_odd {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+div.move_even {
 	padding-top: 5px;
+	padding-bottom: 3px;
+	background: rgba(200, 200, 200);
+}
+
+span.move_title {
+	padding-right: 5px;
+	font-weight: bold;
 }
 
 input.number {
