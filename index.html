@@ -100,7 +100,6 @@
 				<div class="g_force_gauge g_force_8" data-bind="event: {click: function(data, event) {g_force(8); persistState();}}, css: {g_force_hidden: g_force() < 8, g_force_8_visible: g_force() > 7}"></div>
 				<div class="g_force_gauge g_force_9" data-bind="event: {click: function(data, event) {g_force(9); persistState();}}, css: {g_force_hidden: g_force() < 9, g_force_9_visible: g_force() > 8}"></div>
 				<div class="g_force_gauge g_force_10" data-bind="event: {click: function(data, event) {g_force(10); persistState();}}, css: {g_force_hidden: g_force() < 10, g_force_9_visible: g_force() > 9}"></div>
-
 			</div>
 			<div class="move_reference">
 				<div class = "move_odd"><span class="move_title">Extend</span> Speed-&gt;Max; G-Force-&gt;0; +1RPM; disengage if clear, vulnerable if still in the fight</div>
@@ -128,6 +127,30 @@
 				<div class = "move_odd"><span class="move_title">Evade Danger</div>
 				<div class = "move_even"><span class="move_title">Chase</div>
 				<div class = "move_odd"><span class="move_title">Overwatch</span> Hold 1, Spend to protect friend</div>
+			</div>
+			<div class="engine">
+				<input type="number" class="big_number rpm" data-bind="value: rpm, event: {change: persistState}"></input>
+				<input type="number" class="big_number wear" data-bind="value: wear, event: {change: persistState}"></input>
+				<input type="number" class="number reliability" data-bind="value: reliability, event: {change: persistState}"></input>
+				<span class="ideal_altitide_0">0 - </span>
+				<input type="number" class="number ideal_altitide" data-bind="value: ideal_altitide, event: {change: persistState}"></input>
+				<input type="number" class="number overspeed" data-bind="value: overspeed, event: {change: persistState}"></input>
+				<input class="text engine_notes" data-bind="value: engine_notes, event: {change: persistState}"  placeholder="click here to type..."></input>
+			</div>
+			<div class="weapon">
+				<input class="text weapon_type" data-bind="value: weapon_type, event: {change: persistState}"  placeholder="click here to type..."></input>
+				<input type="number" class="number ammo" data-bind="value: ammo, event: {change: persistState}"></input>
+				<input type="number" class="number ap" data-bind="value: ap, event: {change: persistState}"></input>
+				<input class="text jam" data-bind="value: jam, event: {change: persistState}"></input>
+				<input type="number" class="number knife_hits" data-bind="value: knife_hits, event: {change: persistState}"></input>
+				<input type="number" class="number close_hits" data-bind="value: close_hits, event: {change: persistState}"></input>
+				<input type="number" class="number long_hits" data-bind="value: long_hits, event: {change: persistState}"></input>
+				<input type="number" class="number extreme_hits" data-bind="value: extreme_hits, event: {change: persistState}"></input>
+				<input type="number" class="number knife_damage" data-bind="value: knife_damage, event: {change: persistState}"></input>
+				<input type="number" class="number close_damage" data-bind="value: close_damage, event: {change: persistState}"></input>
+				<input type="number" class="number long_damage" data-bind="value: long_damage, event: {change: persistState}"></input>
+				<input type="number" class="number extreme_damage" data-bind="value: extreme_damage, event: {change: persistState}"></input>
+				<textarea class="weapon_tags" data-bind="value: weapon_tags, event: {change: persistState}"  placeholder="click here to type..."></textarea>
 			</div>
 		</div>
 	</body>

@@ -7,7 +7,24 @@ div.instrument_panel {
 	height: 792px;
 	background-image: url("instrument_panel.png");
 	float: left;
-	z-index: 0;
+}
+
+div.move_reference {
+}
+
+div.engine {
+	width: 554px;
+	height: 322px;
+	background-image: url("engine.png");
+	float: left;
+	margin-top: 9px;
+}
+
+div.weapon {
+	width: 561px;
+	height: 347px;
+	background-image: url("weapon.png");
+	float: left;
 }
 
 div.load_selected {
@@ -143,10 +160,6 @@ div.g_force_10 {
 div.g_force_10_visible {
 	background: rgba(200, 0, 20, 0.3);
 }
-
-div.move_reference {
-}
-
 
 div.move_odd {
 	padding-top: 3px;
@@ -559,12 +572,6 @@ input.altitude {
 	width: 185px;
 }
 
-.g_force {
-	position: absolute;
-	top: 690px;
-	left: 745px;
-}
-
 input.airspeed {
 	position: absolute;
 	top: 170px;
@@ -589,3 +596,155 @@ input.airspeed {
 	font-family: Balthazar, serif;
 	resize: none;
 }
+
+input.rpm {
+	position: absolute;
+	top: 967px;
+	left: 85px;
+	background: rgba(255, 255, 255, 1);
+	border: 1px solid;
+}
+
+input.wear {
+	position: absolute;
+	top: 967px;
+	left: 428px;
+	background: rgba(255, 255, 255, 1);
+	border: 1px solid;
+}
+
+.reliability {
+	position: absolute;
+	top: 846px;
+	left: 210px;
+	height: 26px;
+}
+
+.ideal_altitide_0 {
+	position: absolute;
+	top: 851px;
+	left: 314px;
+	height: 26px;
+}
+
+.ideal_altitide {
+	position: absolute;
+	top: 846px;
+	left: 335px;
+	height: 26px;
+}
+
+.overspeed {
+	position: absolute;
+	top: 846px;
+	left: 435px;
+	height: 26px;
+}
+
+.engine_notes {
+	position: absolute;
+	top: 875px;
+	left: 163px;
+	height: 26px;
+	width: 338px;
+}
+
+.weapon_type {
+	position: absolute;
+	top: 900px;
+	left: 600px;
+	height: 26px;
+	width: 260px;
+}
+
+.ammo {
+	position: absolute;
+	top: 967px;
+	left: 650px;
+	height: 26px;
+}
+
+.ap {
+	position: absolute;
+	top: 967px;
+	left: 745px;
+	height: 26px;
+}
+
+.jam {
+	position: absolute;
+	top: 967px;
+	left: 792px;
+	height: 25px;
+	width: 75px;
+	text-align: center;
+}
+
+.knife_hits {
+	position: absolute;
+	top: 1030px;
+	left: 730px;
+	height: 26px;
+}
+
+.close_hits {
+	position: absolute;
+	top: 1030px;
+	left: 830px;
+	height: 26px;
+}
+
+.long_hits {
+	position: absolute;
+	top: 1030px;
+	left: 930px;
+	height: 26px;
+}
+
+.extreme_hits {
+	position: absolute;
+	top: 1030px;
+	left: 1020px;
+	height: 26px;
+}
+
+.knife_damage {
+	position: absolute;
+	top: 1057px;
+	left: 730px;
+	height: 26px;
+}
+
+.close_damage {
+	position: absolute;
+	top: 1057px;
+	left: 830px;
+	height: 26px;
+}
+
+.long_damage {
+	position: absolute;
+	top: 1057px;
+	left: 930px;
+	height: 26px;
+}
+
+.extreme_damage {
+	position: absolute;
+	top: 1057px;
+	left: 1020px;
+	height: 26px;
+}
+
+.weapon_tags {
+	border: 0px none;
+	font-family: Balthazar, serif;
+	position: absolute;
+	top: 1083px;
+	left: 588px;
+	height: 60px;
+	width: 499px;
+	resize: none;
+	border: 2px solid #606060;
+}
+

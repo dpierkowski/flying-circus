@@ -72,11 +72,35 @@ define(['ko'], function(ko) {
 
 		that.notes = ko.observable(planeState ? planeState.notes : 0);
 
+		// tracks what load level is currently selected
 		that.full_load_selected = ko.observable(planeState ? planeState.full_load_selected : false);
 		that.half_fuel_bombs_selected =  ko.observable(planeState ? planeState.half_fuel_bombs_selected : false);
 		that.full_fuel_no_bombs_selected =  ko.observable(planeState ? planeState.full_fuel_no_bombs_selected : true);
 		that.half_fuel_no_bombs_selected =  ko.observable(planeState ? planeState.half_fuel_no_bombs_selected : false);
 		that.empty_selected =  ko.observable(planeState ? planeState.empty_selected : false);
+
+		// engine info
+		that.rpm = ko.observable(planeState &&  planeState.rpm  ? planeState.rpm : 0);
+		that.wear = ko.observable(planeState &&  planeState.wear  ? planeState.wear : 0);
+		that.reliability = ko.observable(planeState &&  planeState.reliability  ? planeState.reliability : 0);
+		that.ideal_altitide = ko.observable(planeState &&  planeState.ideal_altitide  ? planeState.ideal_altitide : 0);
+		that.overspeed = ko.observable(planeState &&  planeState.overspeed ? planeState.overspeed : 0);
+		that.engine_notes = ko.observable(planeState &&  planeState.engine_notes  ? planeState.engine_notes : "");
+
+		// weapon into
+		that.weapon_type = ko.observable(planeState &&  planeState.weapon_type  ? planeState.weapon_type : "");
+		that.ammo = ko.observable(planeState &&  planeState.ammo  ? planeState.ammo : 0);
+		that.ap = ko.observable(planeState &&  planeState.ap  ? planeState.ap : 0);
+		that.jam = ko.observable(planeState &&  planeState.jam  ? planeState.jam : "");
+		that.knife_hits = ko.observable(planeState &&  planeState.knife_hits  ? planeState.knife_hits : 0);
+		that.close_hits = ko.observable(planeState &&  planeState.close_hits  ? planeState.close_hits : 0);
+		that.long_hits = ko.observable(planeState &&  planeState.long_hits  ? planeState.long_hits : 0);
+		that.extreme_hits = ko.observable(planeState &&  planeState.extreme_hits  ? planeState.extreme_hits : 0);
+		that.knife_damage = ko.observable(planeState &&  planeState.knife_damage  ? planeState.knife_damage : 0);
+		that.close_damage = ko.observable(planeState &&  planeState.close_damage  ? planeState.close_damage : 0);
+		that.long_damage = ko.observable(planeState &&  planeState.long_damage  ? planeState.long_damage : 0);
+		that.extreme_damage = ko.observable(planeState &&  planeState.extreme_damage  ? planeState.extreme_damage : 0);
+		that.weapon_tags = ko.observable(planeState &&  planeState.weapon_tags  ? planeState.weapon_tags : "");
 
 		const plane_loads = [that.full_load_selected, that.half_fuel_bombs_selected, that.full_fuel_no_bombs_selected, that.half_fuel_no_bombs_selected, that.empty_selected];
 
@@ -146,7 +170,26 @@ define(['ko'], function(ko) {
 				"half_fuel_bombs_selected": that.half_fuel_bombs_selected(),
 				"full_fuel_no_bombs_selected": that.full_fuel_no_bombs_selected(),
 				"half_fuel_no_bombs_selected": that.half_fuel_no_bombs_selected(),
-				"empty_selected": that.empty_selected()
+				"empty_selected": that.empty_selected(),
+				"rpm": that.rpm(),
+				"wear": that.wear(),
+				"reliability": that.reliability(),
+				"ideal_altitide": that.ideal_altitide(),
+				"overspeed": that.overspeed(),
+				"engine_notes": that.engine_notes(),
+				"weapon_type": that.weapon_type(),
+				"ammo": that.ammo(),
+				"ap": that.ap(),
+				"jam": that.jam(),
+				"knife_hits": that.knife_hits(),
+				"close_hits": that.close_hits(),
+				"long_hits": that.long_hits(),
+				"extreme_hits": that.extreme_hits(),
+				"knife_damage": that.knife_damage(),
+				"close_damage": that.close_damage(),
+				"long_damage": that.long_damage(),
+				"extreme_damage": that.extreme_damage(),
+				"weapon_tags": that.weapon_tags()
 			};
 
 			return JSON.stringify(planeState);
@@ -159,7 +202,7 @@ define(['ko'], function(ko) {
 
 		/* Event handler for when the user clicks on a plane load level */
 		that.selectLoad = function(load) {
-			plane_loads.forEach((item) => {item(false)});
+			plane_loads.forEach((item) => {item(false)}); // clear the previously selected load
 			that[load + '_selected'](true);
 			that.persistState();
 		}
