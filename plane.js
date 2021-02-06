@@ -205,7 +205,49 @@ define(['ko'], function(ko) {
 			plane_loads.forEach((item) => {item(false)}); // clear the previously selected load
 			that[load + '_selected'](true);
 			that.persistState();
-		}
+		};
+
+		var selectedLoad = function() {
+			if (that.full_load_selected()) {
+				return "full_load";
+			} else if (that.half_fuel_bombs_selected()) {
+				return "half_fuel_bombs";
+			} else if (that.full_fuel_no_bombs_selected()) {
+				return "full_fuel_no_bombs";
+			} else if (that.half_fuel_no_bombs_selected()) {
+				return "half_fuel_no_bombs";
+			} else {
+				return "empty";
+			}
+		};
+
+		that.currentBoost = ko.pureComputed(function() {
+			return that[selectedLoad() + "_boost"]();
+		});
+
+		that.currentHandling = ko.pureComputed(function() {
+			return that[selectedLoad() + "_handling"]();
+		});
+
+		that.currentClimb = ko.pureComputed(function() {
+			return that[selectedLoad() + "_climb"]();
+		});
+
+		that.currentStall = ko.pureComputed(function() {
+			return that[selectedLoad() + "_stall"]();
+		});
+
+		that.currentMaxSpeed = ko.pureComputed(function() {
+			return that[selectedLoad() + "_speed"]();
+		});
+
+		that.speedFactor = ko.pureComputed(function() {
+			return Math.floor(that.airspeed()/10) ;
+		});
+
+		that.overstrain = ko.pureComputed(function() {
+			return Math.floor(that.max_strain()/10) ;
+		});		
 
 		return that;
 	};
