@@ -101,30 +101,39 @@
 			<div class="g_force_gauge g_force_9" data-bind="event: {click: function(data, event) {g_force(9); persistState();}}, css: {g_force_hidden: g_force() < 9, g_force_9_visible: g_force() > 8}"></div>
 			<div class="g_force_gauge g_force_10" data-bind="event: {click: function(data, event) {g_force(10); persistState();}}, css: {g_force_hidden: g_force() < 10, g_force_9_visible: g_force() > 9}"></div>
 		</div>
-		<div class="engine">
-			<input type="number" class="big_number rpm" data-bind="value: rpm, event: {change: persistState}"></input>
-			<input type="number" class="big_number wear" data-bind="value: wear, event: {change: persistState}"></input>
-			<input type="number" class="number reliability" data-bind="value: reliability, event: {change: persistState}"></input>
+
+		<!-- ko foreach: {data: engines, as: 'engine'}  -->
+		<div class="engine" data-bind="style: { top: top($index()) }">
+			<input type="number" class="big_number rpm" data-bind="value: rpm, event: {change: $parent.persistState}"></input>
+			<input type="number" class="big_number wear" data-bind="value: wear, event: {change: $parent.persistState}"></input>
+			<input type="number" class="number reliability" data-bind="value: reliability, event: {change: $parent.persistState}"></input>
 			<span class="ideal_altitide_0">0 - </span>
-			<input type="number" class="number ideal_altitide" data-bind="value: ideal_altitide, event: {change: persistState}"></input>
-			<input type="number" class="number overspeed" data-bind="value: overspeed, event: {change: persistState}"></input>
-			<input class="text engine_notes" data-bind="value: engine_notes, event: {change: persistState}"  placeholder="click here to type..."></input>
+			<input type="number" class="number ideal_altitide" data-bind="value: ideal_altitide, event: {change: $parent.persistState}"></input>
+			<input type="number" class="number overspeed" data-bind="value: overspeed, event: {change: $parent.persistState}"></input>
+			<input class="text engine_notes" data-bind="value: notes, event: {change: $parent.persistState}"  placeholder="click here to type..."></input>
+			<button class="remove_engine" data-bind="click: $parent.removeEngine">Remove</button>
 		</div>
-		<div class="weapon">
-			<input class="text weapon_type" data-bind="value: weapon_type, event: {change: persistState}"  placeholder="click here to type..."></input>
-			<input type="number" class="number ammo" data-bind="value: ammo, event: {change: persistState}"></input>
-			<input type="number" class="number ap" data-bind="value: ap, event: {change: persistState}"></input>
-			<input class="text jam" data-bind="value: jam, event: {change: persistState}"></input>
-			<input type="number" class="number knife_hits" data-bind="value: knife_hits, event: {change: persistState}"></input>
-			<input type="number" class="number close_hits" data-bind="value: close_hits, event: {change: persistState}"></input>
-			<input type="number" class="number long_hits" data-bind="value: long_hits, event: {change: persistState}"></input>
-			<input type="number" class="number extreme_hits" data-bind="value: extreme_hits, event: {change: persistState}"></input>
-			<input type="number" class="number knife_damage" data-bind="value: knife_damage, event: {change: persistState}"></input>
-			<input type="number" class="number close_damage" data-bind="value: close_damage, event: {change: persistState}"></input>
-			<input type="number" class="number long_damage" data-bind="value: long_damage, event: {change: persistState}"></input>
-			<input type="number" class="number extreme_damage" data-bind="value: extreme_damage, event: {change: persistState}"></input>
-			<textarea class="weapon_tags" data-bind="value: weapon_tags, event: {change: persistState}"  placeholder="click here to type..."></textarea>
+		<!-- /ko -->
+
+		<!-- ko foreach: {data: weapons, as: 'weapon'}  -->
+		<div class="weapon" data-bind="style: { top: top($index()) }">
+			<input class="text weapon_type" data-bind="value: type, event: {change: $parent.persistState}"  placeholder="click here to type..."></input>
+			<input type="number" class="number ammo" data-bind="value: ammo, event: {change: $parent.persistState}"></input>
+			<input type="number" class="number ap" data-bind="value: ap, event: {change: $parent.persistState}"></input>
+			<input class="text jam" data-bind="value: jam, event: {change: $parent.persistState}"></input>
+			<input type="number" class="number knife_hits" data-bind="value: knife_hits, event: {change: $parent.persistState}"></input>
+			<input type="number" class="number close_hits" data-bind="value: close_hits, event: {change: $parent.persistState}"></input>
+			<input type="number" class="number long_hits" data-bind="value: long_hits, event: {change: $parent.persistState}"></input>
+			<input type="number" class="number extreme_hits" data-bind="value: extreme_hits, event: {change: $parent.persistState}"></input>
+			<input type="number" class="number knife_damage" data-bind="value: knife_damage, event: {change: $parent.persistState}"></input>
+			<input type="number" class="number close_damage" data-bind="value: close_damage, event: {change: $parent.persistState}"></input>
+			<input type="number" class="number long_damage" data-bind="value: long_damage, event: {change: $parent.persistState}"></input>
+			<input type="number" class="number extreme_damage" data-bind="value: extreme_damage, event: {change: $parent.persistState}"></input>
+			<textarea class="weapon_tags" data-bind="value: tags, event: {change: $parent.persistState}"  placeholder="click here to type..."></textarea>
+			<button class="remove_weapon" data-bind="click: $parent.removeWeapon">Remove</button>
 		</div>
+		<!-- /ko -->
+
 		<div class="move_reference">
 			<div class = "move_odd"><span class="move_title">Extend</span> Speed-&gt;Max (<span data-bind="text: currentMaxSpeed"></span>); G-Force-&gt;0; +1RPM; disengage if clear, vulnerable if still in the fight</div>
 			<div class = "move_even"><span class="move_title">Alt Adjustment++</span> Trade speed for altitude 5 to 1</div>
@@ -155,6 +164,12 @@
 			<div>&nbsp;</div>
 			<div class = "move_odd"><span class="move_title">Bail Out</span> +Calm+Escape (<span data-bind="text: plane_escape"></span>); tell the GM one thing you take with you and roll </div>
 			<div class = "move_even"><span class="move_title">Go Down</span> +Calm+Crash Safety (<span data-bind="text: crash"></span>)</div>
-		</div>		
+		</div>
+		<div class="add_engine">
+			<button class="add_engine" data-bind="click: addEngine">Add Engine</button>
+		</div>
+		<div class="add_weapon">
+			<button class="add_weapon" data-bind="click: addWeapon">Add Weapon</button>
+		</div>
 	</body>
 </html>

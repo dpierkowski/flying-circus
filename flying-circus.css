@@ -585,7 +585,7 @@ input.altitude {
 
 .ordinance_4 {
 	position: absolute;
-	top: 622px;
+	top: 620px;
 	left: 520px;
 	height: 25px;
 	width: 185px;
@@ -765,5 +765,42 @@ input.wear {
 	width: 499px;
 	resize: none;
 	border: 2px solid #606060;
+}
+
+button.remove_engine {
+	font-family: Balthazar, serif;
+	position: absolute;
+	top: 75px;
+	left: 495px;
+	width: 60px;
+}
+
+button.remove_weapon {
+	font-family: Balthazar, serif;
+	position: absolute;
+	top: 85px;
+	left: 495px;
+	width: 60px;
+}
+
+div.add_engine {
+	font-family: Balthazar, serif;
+	position: absolute;
+	top: 783px;
+}
+
+button.add_engine {
+	font-family: Balthazar, serif;
+}
+
+div.add_weapon {
+	font-family: Balthazar, serif;
+	position: absolute;
+	top: 783px;
+	left: 1020px;
+}
+
+button.add_weapon {
+	font-family: Balthazar, serif;
 }
 
