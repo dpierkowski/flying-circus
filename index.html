@@ -77,6 +77,18 @@
 
 			<textarea class="notes" data-bind="value: notes, event: {change: persistState}"  placeholder="click here to type..."></textarea>
 
+			<div class="picture_selector" data-bind="css {inactive_picture: hasPicture()}">
+				<label for="myfile">Select a picture:</label><br/>
+				<input type="file" data-bind="value: picture"/> 
+			</div>
+
+			<div class="picture" data-bind="css: {inactive_picture: !hasPicture()}">
+				<svg height="245" width="240">
+					<polygon points="80,250 245,220 245,250" style="fill:#e5e5e5;" />
+					<polyline points="80,250 245,220" style="fill:none;stroke:black;stroke-width:1" />
+				</svg>
+			</div>
+
 			<!-- These are the divs for the load indicator -->
 			<div class="load_indicator full_load" data-bind="event: {click: function(data, event) {selectLoad('full_load')}}, css: {load_selected: full_load_selected()}"></div>
 

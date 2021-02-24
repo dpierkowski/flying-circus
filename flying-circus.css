@@ -227,6 +227,30 @@ textarea.notes {
 	resize: none;
 }
 
+div.picture_selector {
+	font-family: Balthazar, serif;
+	position: absolute;
+	top: 550px;
+	left: 830px;
+	z-index: 1;
+}
+
+div.picture {
+	/*background-image: url("file:///C:/Users/dpierkowski/Pictures/hercules_2.png");*/
+	background-size: 240px 245px;
+	position: absolute;
+	top: 485px;
+	left: 812px;
+	width: 240px;
+	height: 245px;
+	z-index: 1;
+	transform: rotate(10deg);
+}
+
+div.inactive_picture {
+	display: none;
+}
+
 input.altitude {
 	position: absolute;
 	top: 162px;

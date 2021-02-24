@@ -19,7 +19,7 @@ define(['ko', 'engine', 'weapon'], function(ko, engineConstructor, weaponConstru
 		that.max_strain = ko.observable(planeState ? planeState.max_strain : 0);
 		that.current_strain = ko.observable(planeState ? planeState.current_strain : 0);
 		that.g_force = ko.observable(planeState ? planeState.g_force : 0);
-		that.kills = ko.observable(planeState ? planeState.kills : 0);
+		that.kills = ko.observable(planeState ? planeState.kills : "");
 
 		that.full_load_boost = ko.observable(planeState ? planeState.full_load_boost : 0);
 		that.full_load_handling = ko.observable(planeState ? planeState.full_load_handling : 0);
@@ -51,26 +51,27 @@ define(['ko', 'engine', 'weapon'], function(ko, engineConstructor, weaponConstru
 		that.empty_stall = ko.observable(planeState ? planeState.empty_stall : 0);
 		that.empty_speed = ko.observable(planeState ? planeState.empty_speed : 0);
 
-		that.vital_part_1 = ko.observable(planeState ? planeState.vital_part_1 : 0);
-		that.vital_part_2 = ko.observable(planeState ? planeState.vital_part_2 : 0);
-		that.vital_part_3 = ko.observable(planeState ? planeState.vital_part_3 : 0);
-		that.vital_part_4 = ko.observable(planeState ? planeState.vital_part_4 : 0);
-		that.vital_part_5 = ko.observable(planeState ? planeState.vital_part_5 : 0);
-		that.vital_part_6 = ko.observable(planeState ? planeState.vital_part_6 : 0);
-		that.vital_part_7 = ko.observable(planeState ? planeState.vital_part_7 : 0);
-		that.vital_part_8 = ko.observable(planeState ? planeState.vital_part_8 : 0);
-		that.vital_part_9 = ko.observable(planeState ? planeState.vital_part_9 : 0);
-		that.vital_part_10 = ko.observable(planeState ? planeState.vital_part_10 : 0);
+		that.vital_part_1 = ko.observable(planeState ? planeState.vital_part_1 : "");
+		that.vital_part_2 = ko.observable(planeState ? planeState.vital_part_2 : "");
+		that.vital_part_3 = ko.observable(planeState ? planeState.vital_part_3 : "");
+		that.vital_part_4 = ko.observable(planeState ? planeState.vital_part_4 : "");
+		that.vital_part_5 = ko.observable(planeState ? planeState.vital_part_5 : "");
+		that.vital_part_6 = ko.observable(planeState ? planeState.vital_part_6 : "");
+		that.vital_part_7 = ko.observable(planeState ? planeState.vital_part_7 : "");
+		that.vital_part_8 = ko.observable(planeState ? planeState.vital_part_8 : "");
+		that.vital_part_9 = ko.observable(planeState ? planeState.vital_part_9 : "");
+		that.vital_part_10 = ko.observable(planeState ? planeState.vital_part_10 : "");
 
-		that.armor = ko.observable(planeState ? planeState.armor : 0);
+		that.armor = ko.observable(planeState ? planeState.armor : "");
 		that.max_bomb_load = ko.observable(planeState ? planeState.max_bomb_load : 0);
 
-		that.ordinance_1 = ko.observable(planeState ? planeState.ordinance_1 : 0);
-		that.ordinance_2 = ko.observable(planeState ? planeState.ordinance_2 : 0);
-		that.ordinance_3 = ko.observable(planeState ? planeState.ordinance_3 : 0);
-		that.ordinance_4 = ko.observable(planeState ? planeState.ordinance_4 : 0);
+		that.ordinance_1 = ko.observable(planeState ? planeState.ordinance_1 : "");
+		that.ordinance_2 = ko.observable(planeState ? planeState.ordinance_2 : "");
+		that.ordinance_3 = ko.observable(planeState ? planeState.ordinance_3 : "");
+		that.ordinance_4 = ko.observable(planeState ? planeState.ordinance_4 : "");
 
-		that.notes = ko.observable(planeState ? planeState.notes : 0);
+		that.notes = ko.observable(planeState ? planeState.notes : "");
+		that.picture = ko.observable(planeState ? planeState.picture : "");
 
 		// tracks what load level is currently selected
 		that.full_load_selected = ko.observable(planeState ? planeState.full_load_selected : false);
@@ -82,11 +83,17 @@ define(['ko', 'engine', 'weapon'], function(ko, engineConstructor, weaponConstru
 
 		that.engines = ko.observableArray();
 		if (planeState && planeState.engines) {
+			//Note that although we parsed the plane state from a string to a JSON object before passing it in,
+			//that parsing doesn't nest down in to arrays, like the array of engines,
+			//so we need to explicitly parse these here
 			planeState.engines.forEach((engineState) => { that.engines.push(engineConstructor(JSON.parse(engineState))); });
 		}
 
 		that.weapons = ko.observableArray();
 		if (planeState && planeState.weapons) {
+			//Note that although we parsed the plane state from a string to a JSON object before passing it in,
+			//that parsing doesn't nest down in to arrays, like the array of weapons,
+			//so we need to explicitly parse these here
 			planeState.weapons.forEach((weaponState) => { that.weapons.push(weaponConstructor(JSON.parse(weaponState))); });
 		}
 
@@ -172,25 +179,21 @@ define(['ko', 'engine', 'weapon'], function(ko, engineConstructor, weaponConstru
 		that.addEngine = function() {
 			that.engines.push(engineConstructor());
 			that.persistState();
-			console.log("a");
 		};
 
 		that.addWeapon = function() {
 			that.weapons.push(weaponConstructor());
 			that.persistState();
-			console.log("a");
 		};
 
 		that.removeEngine = function(engine) {
 			that.engines.remove(engine);
 			that.persistState();
-			console.log("a");
 		};
 
 		that.removeWeapon = function(weapon) {
 			that.weapons.remove(weapon);
 			that.persistState();
-			console.log("a");
 		};
 
 		that.persistState = function() {
@@ -263,6 +266,10 @@ define(['ko', 'engine', 'weapon'], function(ko, engineConstructor, weaponConstru
 			}
 
 			return text;
+		});
+
+		that.hasPicture = ko.pureComputed(function() {
+			return that.picture();
 		});
 
 		return that;
