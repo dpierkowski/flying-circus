@@ -268,10 +268,6 @@ define(['ko', 'engine', 'weapon'], function(ko, engineConstructor, weaponConstru
 			return text;
 		});
 
-		that.hasPicture = ko.pureComputed(function() {
-			return that.picture();
-		});
-
 		return that;
 	};
 });
