@@ -276,7 +276,20 @@ define(['ko', 'engine', 'weapon'], function(ko, engineConstructor, weaponConstru
 			} else {
 				that.altitude((Math.floor(that.altitude() / 10) * 10) + parseInt(altitude));
 			}
+
+			that.persistState();
 		};
+
+		that.selectAirspeed = function(airspeed) {
+
+			if (airspeed.length == 2) {
+				that.airspeed(parseInt(airspeed) + (that.airspeed() % 10));
+			} else {
+				that.airspeed((Math.floor(that.airspeed() / 10) * 10) + parseInt(airspeed));
+			}
+
+			that.persistState();
+		};		
 
 		/* The short hand on the altimeter is thousands of feet, 
 		   a.k.a., the tens digit of the planes altitude
@@ -291,6 +304,20 @@ define(['ko', 'engine', 'weapon'], function(ko, engineConstructor, weaponConstru
 		that.altimeterLongHandRotation = ko.pureComputed(function() {
 			return Math.floor(that.altitude() % 10) * 36;
 		});
+
+		/* The short hand on the airspeed dial is the tens digit 
+		   of the planes airspeed
+		*/
+		that.airspeedShortHandRotation = ko.pureComputed(function() {
+			return Math.floor(that.airspeed()/10) * 36;
+		});
+
+		/* The short hand on the airspeed dial is the singled digit 
+		   of the planes airspeed
+		*/
+		that.airspeedLongHandRotation = ko.pureComputed(function() {
+			return Math.floor(that.airspeed() % 10) * 36;
+		});		
 
 		return that;
 	};
