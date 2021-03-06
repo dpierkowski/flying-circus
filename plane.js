@@ -245,8 +245,12 @@ define(['ko', 'engine', 'weapon'], function(ko, engineConstructor, weaponConstru
 
 		that.overstrain = ko.pureComputed(function() {
 			return Math.floor(that.max_strain()/10) ;
-		});	
+		});
 
+		/* Planes can have multiple engines, and each engine can have
+		   a different Overspeed.  Build a comma seperated string of 
+		   the overspeeds of all of the engines on this plane.
+		*/
 		that.overspeed = ko.pureComputed(function() {
 			var text = "";
 
@@ -263,6 +267,29 @@ define(['ko', 'engine', 'weapon'], function(ko, engineConstructor, weaponConstru
 			}
 
 			return text;
+		});
+
+		that.selectAltitude = function(altitude) {
+
+			if (altitude.length == 2) {
+				that.altitude(parseInt(altitude) + (that.altitude() % 10));
+			} else {
+				that.altitude((Math.floor(that.altitude() / 10) * 10) + parseInt(altitude));
+			}
+		};
+
+		/* The short hand on the altimeter is thousands of feet, 
+		   a.k.a., the tens digit of the planes altitude
+		*/
+		that.altimeterShortHandRotation = ko.pureComputed(function() {
+			return Math.floor(that.altitude()/10) * 36;
+		});
+
+		/* The short hand on the altimeter is hundreds of feet, 
+		   a.k.a., the singles digit of the planes altitude
+		*/
+		that.altimeterLongHandRotation = ko.pureComputed(function() {
+			return Math.floor(that.altitude() % 10) * 36;
 		});
 
 		return that;
