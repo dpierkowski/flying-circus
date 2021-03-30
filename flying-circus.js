@@ -6,8 +6,15 @@ requirejs.config({
 });
 
 requirejs(['plane', 'ko', 'jquery'], function (modelConstructor, ko, $) {
-
-	const planeState = JSON.parse(window.localStorage.getItem("planeState"));
+    var sp = new URLSearchParams(location.search);
+    var link_state = sp.get("json");
+    if(link_state){
+        window.localStorage.setItem("planeState", atob(link_state));
+        sp.delete("json");
+        window.history.replaceState(null, null, "index.html");
+    }
+        
+    const planeState = JSON.parse(window.localStorage.getItem("planeState"));
     var model = modelConstructor(planeState);
 
     ko.applyBindings(model);
